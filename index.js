@@ -2,12 +2,13 @@ var express = require('express')
 var app = express();
 var fs = require('fs')
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 8080))
 app.use(express.static(__dirname + '/public'))
 
 
 var content =fs.readFileSync('index.html')
 var out = content.toString()
+var port = process.env.PORT || 8080;
 
 app.get('/', function(request, response) {
   response.send(out)
